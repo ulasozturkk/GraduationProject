@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		529D12022B946071005F7C4C /* MeetPlan-Design-Report.docx in Resources */ = {isa = PBXBuildFile; fileRef = 529D12012B946071005F7C4C /* MeetPlan-Design-Report.docx */; };
+		529D12042B9460CB005F7C4C /* MeetPlan-Design-Report.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 529D12032B9460CB005F7C4C /* MeetPlan-Design-Report.pdf */; };
 		52B7C7142B49E2FF003E507E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B7C7132B49E2FF003E507E /* AppDelegate.swift */; };
 		52B7C7162B49E2FF003E507E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B7C7152B49E2FF003E507E /* SceneDelegate.swift */; };
 		52B7C7182B49E2FF003E507E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B7C7172B49E2FF003E507E /* ViewController.swift */; };
@@ -36,7 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		529D12012B946071005F7C4C /* MeetPlan-Design-Report.docx */ = {isa = PBXFileReference; lastKnownFileType = file; name = "MeetPlan-Design-Report.docx"; path = "../../../../MeetPlan-Design-Report.docx"; sourceTree = "<group>"; };
+		529D12032B9460CB005F7C4C /* MeetPlan-Design-Report.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = "MeetPlan-Design-Report.pdf"; path = "../../../../MeetPlan-Design-Report.pdf"; sourceTree = "<group>"; };
 		52B7C7102B49E2FF003E507E /* GraduationProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GraduationProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52B7C7132B49E2FF003E507E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52B7C7152B49E2FF003E507E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -79,7 +79,7 @@
 		529D12002B94605E005F7C4C /* Files */ = {
 			isa = PBXGroup;
 			children = (
-				529D12012B946071005F7C4C /* MeetPlan-Design-Report.docx */,
+				529D12032B9460CB005F7C4C /* MeetPlan-Design-Report.pdf */,
 			);
 			path = Files;
 			sourceTree = "<group>";
@@ -239,8 +239,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				529D12022B946071005F7C4C /* MeetPlan-Design-Report.docx in Resources */,
 				52B7C7202B49E300003E507E /* LaunchScreen.storyboard in Resources */,
+				529D12042B9460CB005F7C4C /* MeetPlan-Design-Report.pdf in Resources */,
 				52B7C71D2B49E300003E507E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
