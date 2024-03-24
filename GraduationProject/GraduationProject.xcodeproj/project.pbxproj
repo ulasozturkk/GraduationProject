@@ -71,6 +71,8 @@
 		525102B42BB04C1200575DE6 /* GraduationProject */ = {
 			isa = PBXGroup;
 			children = (
+				525103152BB0506000575DE6 /* Models */,
+				525103142BB0505A00575DE6 /* Utils */,
 				525103112BB0501A00575DE6 /* Managers */,
 				525102D82BB04DEF00575DE6 /* GoogleService-Info.plist */,
 				525102C82BB04C6D00575DE6 /* Service */,
@@ -107,6 +109,20 @@
 				525103122BB0502500575DE6 /* SessionManager.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		525103142BB0505A00575DE6 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		525103152BB0506000575DE6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
