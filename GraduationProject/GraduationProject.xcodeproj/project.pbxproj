@@ -21,6 +21,10 @@
 		525102F42BB04FB400575DE6 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 525102F32BB04FB400575DE6 /* FirebaseFirestore */; };
 		5251030E2BB04FB400575DE6 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 5251030D2BB04FB400575DE6 /* FirebaseStorage */; };
 		525103132BB0502500575DE6 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525103122BB0502500575DE6 /* SessionManager.swift */; };
+		525103192BB0522600575DE6 /* StaticFuncs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525103182BB0522600575DE6 /* StaticFuncs.swift */; };
+		5251031B2BB0523F00575DE6 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5251031A2BB0523F00575DE6 /* Location.swift */; };
+		5251031D2BB0524E00575DE6 /* Meeting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5251031C2BB0524E00575DE6 /* Meeting.swift */; };
+		5251031F2BB0525F00575DE6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5251031E2BB0525F00575DE6 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +39,10 @@
 		525102CB2BB04C8700575DE6 /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		525102D82BB04DEF00575DE6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		525103122BB0502500575DE6 /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
+		525103182BB0522600575DE6 /* StaticFuncs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticFuncs.swift; sourceTree = "<group>"; };
+		5251031A2BB0523F00575DE6 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		5251031C2BB0524E00575DE6 /* Meeting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meeting.swift; sourceTree = "<group>"; };
+		5251031E2BB0525F00575DE6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,8 +79,8 @@
 		525102B42BB04C1200575DE6 /* GraduationProject */ = {
 			isa = PBXGroup;
 			children = (
-				525103152BB0506000575DE6 /* Models */,
-				525103142BB0505A00575DE6 /* Utils */,
+				525103172BB051EA00575DE6 /* Models */,
+				525103162BB051E500575DE6 /* Utils */,
 				525103112BB0501A00575DE6 /* Managers */,
 				525102D82BB04DEF00575DE6 /* GoogleService-Info.plist */,
 				525102C82BB04C6D00575DE6 /* Service */,
@@ -111,16 +119,20 @@
 			path = Managers;
 			sourceTree = "<group>";
 		};
-		525103142BB0505A00575DE6 /* Utils */ = {
+		525103162BB051E500575DE6 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				525103182BB0522600575DE6 /* StaticFuncs.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		525103152BB0506000575DE6 /* Models */ = {
+		525103172BB051EA00575DE6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				5251031A2BB0523F00575DE6 /* Location.swift */,
+				5251031C2BB0524E00575DE6 /* Meeting.swift */,
+				5251031E2BB0525F00575DE6 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -208,10 +220,14 @@
 				525102BF2BB04C1300575DE6 /* Persistence.swift in Sources */,
 				525102B82BB04C1200575DE6 /* ContentView.swift in Sources */,
 				525102CA2BB04C7800575DE6 /* AuthService.swift in Sources */,
+				525103192BB0522600575DE6 /* StaticFuncs.swift in Sources */,
+				5251031B2BB0523F00575DE6 /* Location.swift in Sources */,
+				5251031D2BB0524E00575DE6 /* Meeting.swift in Sources */,
 				525102B62BB04C1200575DE6 /* GraduationProjectApp.swift in Sources */,
 				525102CC2BB04C8700575DE6 /* FirebaseService.swift in Sources */,
 				525102C22BB04C1300575DE6 /* GraduationProject.xcdatamodeld in Sources */,
 				525103132BB0502500575DE6 /* SessionManager.swift in Sources */,
+				5251031F2BB0525F00575DE6 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
