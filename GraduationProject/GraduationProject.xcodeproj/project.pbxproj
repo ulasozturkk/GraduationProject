@@ -25,6 +25,12 @@
 		5251031B2BB0523F00575DE6 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5251031A2BB0523F00575DE6 /* Location.swift */; };
 		5251031D2BB0524E00575DE6 /* Meeting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5251031C2BB0524E00575DE6 /* Meeting.swift */; };
 		5251031F2BB0525F00575DE6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5251031E2BB0525F00575DE6 /* User.swift */; };
+		525103212BB0570300575DE6 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525103202BB0570300575DE6 /* Colors.swift */; };
+		525103242BB0572E00575DE6 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525103232BB0572E00575DE6 /* CustomTextField.swift */; };
+		525103262BB0573F00575DE6 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525103252BB0573F00575DE6 /* CustomButton.swift */; };
+		525103282BB0575000575DE6 /* CustomToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525103272BB0575000575DE6 /* CustomToggle.swift */; };
+		5251032A2BB0576200575DE6 /* CustomBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525103292BB0576200575DE6 /* CustomBackButton.swift */; };
+		5251032E2BB0578700575DE6 /* TextViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5251032D2BB0578700575DE6 /* TextViewModifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +49,12 @@
 		5251031A2BB0523F00575DE6 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		5251031C2BB0524E00575DE6 /* Meeting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meeting.swift; sourceTree = "<group>"; };
 		5251031E2BB0525F00575DE6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		525103202BB0570300575DE6 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		525103232BB0572E00575DE6 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		525103252BB0573F00575DE6 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		525103272BB0575000575DE6 /* CustomToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomToggle.swift; sourceTree = "<group>"; };
+		525103292BB0576200575DE6 /* CustomBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBackButton.swift; sourceTree = "<group>"; };
+		5251032D2BB0578700575DE6 /* TextViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +91,7 @@
 		525102B42BB04C1200575DE6 /* GraduationProject */ = {
 			isa = PBXGroup;
 			children = (
+				525103222BB0571600575DE6 /* CustomComponents */,
 				525103172BB051EA00575DE6 /* Models */,
 				525103162BB051E500575DE6 /* Utils */,
 				525103112BB0501A00575DE6 /* Managers */,
@@ -122,7 +135,9 @@
 		525103162BB051E500575DE6 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				5251032C2BB0577700575DE6 /* ViewModifiers */,
 				525103182BB0522600575DE6 /* StaticFuncs.swift */,
+				525103202BB0570300575DE6 /* Colors.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -135,6 +150,25 @@
 				5251031E2BB0525F00575DE6 /* User.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		525103222BB0571600575DE6 /* CustomComponents */ = {
+			isa = PBXGroup;
+			children = (
+				525103232BB0572E00575DE6 /* CustomTextField.swift */,
+				525103252BB0573F00575DE6 /* CustomButton.swift */,
+				525103272BB0575000575DE6 /* CustomToggle.swift */,
+				525103292BB0576200575DE6 /* CustomBackButton.swift */,
+			);
+			path = CustomComponents;
+			sourceTree = "<group>";
+		};
+		5251032C2BB0577700575DE6 /* ViewModifiers */ = {
+			isa = PBXGroup;
+			children = (
+				5251032D2BB0578700575DE6 /* TextViewModifier.swift */,
+			);
+			path = ViewModifiers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -217,17 +251,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				525103242BB0572E00575DE6 /* CustomTextField.swift in Sources */,
 				525102BF2BB04C1300575DE6 /* Persistence.swift in Sources */,
+				525103212BB0570300575DE6 /* Colors.swift in Sources */,
 				525102B82BB04C1200575DE6 /* ContentView.swift in Sources */,
+				525103262BB0573F00575DE6 /* CustomButton.swift in Sources */,
 				525102CA2BB04C7800575DE6 /* AuthService.swift in Sources */,
 				525103192BB0522600575DE6 /* StaticFuncs.swift in Sources */,
 				5251031B2BB0523F00575DE6 /* Location.swift in Sources */,
 				5251031D2BB0524E00575DE6 /* Meeting.swift in Sources */,
+				5251032A2BB0576200575DE6 /* CustomBackButton.swift in Sources */,
 				525102B62BB04C1200575DE6 /* GraduationProjectApp.swift in Sources */,
 				525102CC2BB04C8700575DE6 /* FirebaseService.swift in Sources */,
 				525102C22BB04C1300575DE6 /* GraduationProject.xcdatamodeld in Sources */,
+				525103282BB0575000575DE6 /* CustomToggle.swift in Sources */,
 				525103132BB0502500575DE6 /* SessionManager.swift in Sources */,
 				5251031F2BB0525F00575DE6 /* User.swift in Sources */,
+				5251032E2BB0578700575DE6 /* TextViewModifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
