@@ -11,3 +11,4 @@ struct Meeting : Identifiable {
   var price : Double
   var meetingLink: String?
 }
+// TODO: - ADD COLORS
