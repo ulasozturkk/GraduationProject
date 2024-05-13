@@ -6,4 +6,5 @@ enum Colors : String {
   case green = "Green"
   case black = "Black"
   case gray = "GrayText"
+  case white = "White"
 }

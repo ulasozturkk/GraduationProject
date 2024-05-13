@@ -1,16 +1,13 @@
-
 import Foundation
 
-struct User:Identifiable  {  //Codable
-  var id: String
-  var username : String
-  var email : String
-  var password: String
-  var friends : [UUID]?
-  var meetings: [Meeting]?
-  var meetingInvites: [Meeting]?
-  var pastMeetings: [Meeting]?
-  var favPlaces: [Place]?
-  
-  
+struct User {
+  var userID: String
+  var email: String
+  var userName: String?
+  var nickName: String?
+  var passwordHash : String?
+  var lastLogin : Date?
+  var isDeleted: Bool?
+  var accessToken : String
+  var tokenExpiration: String
 }

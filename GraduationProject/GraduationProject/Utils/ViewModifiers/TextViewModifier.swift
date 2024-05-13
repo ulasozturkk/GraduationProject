@@ -25,6 +25,6 @@ struct Description : ViewModifier {
     content
       .font(.caption)
       .fontWeight(.light)
-      .foregroundStyle(Color(Colors.gray.rawValue))
+
   }
 }

@@ -1,14 +1,16 @@
-
-
 import Foundation
-import FirebaseAuth
 
 class SessionManager {
   static let shared = SessionManager()
 
-  var currentUser: User?
+
+  var currentServiceUser: User?
   private init() {}
-  func setUser(user:User) {
-      self.currentUser = user
+
+  func setServiceUser(serviceUserResponse: AuthResponse) {
+    self.currentServiceUser?.email = serviceUserResponse.data.email
+    self.currentServiceUser?.userID = serviceUserResponse.data.userID
+    self.currentServiceUser?.accessToken = serviceUserResponse.data.accessToken
+    self.currentServiceUser?.tokenExpiration = serviceUserResponse.data.accessTokenExpiration
   }
 }
