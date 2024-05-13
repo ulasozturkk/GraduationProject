@@ -15,6 +15,11 @@
 		522F465F2BF2485B002F8796 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522F465E2BF2485B002F8796 /* User.swift */; };
 		522F46622BF2488B002F8796 /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522F46612BF2488B002F8796 /* AuthResponse.swift */; };
 		522F46642BF24906002F8796 /* MeetingResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522F46632BF24906002F8796 /* MeetingResponse.swift */; };
+		522F466A2BF250C4002F8796 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522F46692BF250C4002F8796 /* SignUpView.swift */; };
+		522F466C2BF250D1002F8796 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522F466B2BF250D1002F8796 /* SignUpViewModel.swift */; };
+		522F466E2BF250FB002F8796 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522F466D2BF250FB002F8796 /* TabBar.swift */; };
+		522F46702BF25202002F8796 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522F466F2BF25202002F8796 /* SignInView.swift */; };
+		522F46722BF25217002F8796 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522F46712BF25217002F8796 /* SignInViewModel.swift */; };
 		525102B62BB04C1200575DE6 /* GraduationProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525102B52BB04C1200575DE6 /* GraduationProjectApp.swift */; };
 		525102B82BB04C1200575DE6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525102B72BB04C1200575DE6 /* ContentView.swift */; };
 		525102BA2BB04C1300575DE6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 525102B92BB04C1300575DE6 /* Assets.xcassets */; };
@@ -41,6 +46,11 @@
 		522F465E2BF2485B002F8796 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		522F46612BF2488B002F8796 /* AuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
 		522F46632BF24906002F8796 /* MeetingResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingResponse.swift; sourceTree = "<group>"; };
+		522F46692BF250C4002F8796 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		522F466B2BF250D1002F8796 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		522F466D2BF250FB002F8796 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
+		522F466F2BF25202002F8796 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		522F46712BF25217002F8796 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		525102B22BB04C1200575DE6 /* GraduationProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GraduationProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		525102B52BB04C1200575DE6 /* GraduationProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraduationProjectApp.swift; sourceTree = "<group>"; };
 		525102B72BB04C1200575DE6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -91,8 +101,37 @@
 		522F46652BF24DDD002F8796 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				522F46662BF24DF4002F8796 /* Auth */,
+				522F466D2BF250FB002F8796 /* TabBar.swift */,
 			);
 			path = Features;
+			sourceTree = "<group>";
+		};
+		522F46662BF24DF4002F8796 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				522F46682BF24DFE002F8796 /* SignIn */,
+				522F46672BF24DF9002F8796 /* SignUp */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		522F46672BF24DF9002F8796 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				522F46692BF250C4002F8796 /* SignUpView.swift */,
+				522F466B2BF250D1002F8796 /* SignUpViewModel.swift */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		522F46682BF24DFE002F8796 /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				522F466F2BF25202002F8796 /* SignInView.swift */,
+				522F46712BF25217002F8796 /* SignInViewModel.swift */,
+			);
+			path = SignIn;
 			sourceTree = "<group>";
 		};
 		525102A92BB04C1200575DE6 = {
@@ -277,12 +316,15 @@
 				522F465B2BF247CB002F8796 /* NetworkManager.swift in Sources */,
 				522F46622BF2488B002F8796 /* AuthResponse.swift in Sources */,
 				525102B82BB04C1200575DE6 /* ContentView.swift in Sources */,
+				522F46702BF25202002F8796 /* SignInView.swift in Sources */,
 				525103262BB0573F00575DE6 /* CustomButton.swift in Sources */,
 				525103192BB0522600575DE6 /* StaticFuncs.swift in Sources */,
 				522F465F2BF2485B002F8796 /* User.swift in Sources */,
 				5251032A2BB0576200575DE6 /* CustomBackButton.swift in Sources */,
+				522F466A2BF250C4002F8796 /* SignUpView.swift in Sources */,
 				525102B62BB04C1200575DE6 /* GraduationProjectApp.swift in Sources */,
 				522F46562BF2478E002F8796 /* CustomImage.swift in Sources */,
+				522F46722BF25217002F8796 /* SignInViewModel.swift in Sources */,
 				525102C22BB04C1300575DE6 /* GraduationProject.xcdatamodeld in Sources */,
 				522F46592BF247BB002F8796 /* Endpoint.swift in Sources */,
 				522F46542BF24776002F8796 /* CustomIconButton.swift in Sources */,
@@ -290,7 +332,9 @@
 				525103132BB0502500575DE6 /* SessionManager.swift in Sources */,
 				522F465D2BF2483F002F8796 /* Meeting.swift in Sources */,
 				522F46642BF24906002F8796 /* MeetingResponse.swift in Sources */,
+				522F466C2BF250D1002F8796 /* SignUpViewModel.swift in Sources */,
 				5251032E2BB0578700575DE6 /* TextViewModifier.swift in Sources */,
+				522F466E2BF250FB002F8796 /* TabBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
