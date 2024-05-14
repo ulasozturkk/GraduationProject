@@ -13,6 +13,7 @@ class SignInViewModel : ObservableObject{
       NetworkManager.shared.signInUser(email: email, password: password) { result in
         switch result {
         case .success(let response):
+          
           SessionManager.shared.setServiceUser(serviceUserResponse: response)
           self.changePage = true
           

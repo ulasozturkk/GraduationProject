@@ -228,6 +228,10 @@ extension Endpoint: EndPointProtocol {
     var request = URLRequest(url: components.url!)
     request.httpMethod = method.rawValue
     request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+    if (self.path == "/api/Meeting/getUserMeetings") {
+      let token = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjgyNzQ3NmQzLTM2M2QtNDM4Yi1hNWZhLTg3OThjMTU1YWM5NSIsImVtYWlsIjoic3dpZnR0ZXN0MUB0ZXN0LmNvbSIsImp0aSI6IjM4NGQwZDU1LTU2ZDAtNGJlMy05N2ZiLWU0M2NhNDQwZWIwNCIsImF1ZCI6Ind3dy51bGFzb3p0dXJrLmRldiIsIm5iZiI6MTcxNTY4NDM1NywiZXhwIjoxNzE1NzAyMzU3LCJpc3MiOiJ3d3cudWxhc296dHVyay5kZXYifQ.YbO66YK35bGn1mt5DXNfpUj7yT14Z-PoqnLRDn2kI9Q"
+      request.setValue(token, forHTTPHeaderField: "Authorization")
+    }
     
     if let parameters = parameters {
       do {

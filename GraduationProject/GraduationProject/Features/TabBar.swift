@@ -5,8 +5,8 @@ import SwiftUI
 struct TabBar: View {
   var body: some View {
     TabView {
-//      MeetingsView()
-//        .tabItem { Label("Meetings", systemImage: "calendar") }
+      MeetingsView()
+        .tabItem { Label("Meetings", systemImage: "calendar") }
 //      PastMeetingsView()
 //        .tabItem { Label("Past Meetings", systemImage: "calendar.badge.checkmark") }
 //

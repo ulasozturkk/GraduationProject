@@ -39,7 +39,7 @@ class NetworkManager{
     createRequest(endpoint, completion: completion)
   }
   
-  func getUserMeetings(completion: @escaping (Result<[MeetingResponse],Error>)-> Void){
+  func getUserMeetings(completion: @escaping (Result<UserMeetingResponse,Error>)-> Void){
     let endpoint = Endpoint.getUserMeetings
     createRequest(endpoint, completion: completion)
     

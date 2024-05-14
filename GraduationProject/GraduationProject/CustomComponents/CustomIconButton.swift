@@ -35,7 +35,7 @@ struct CustomIconButton: View {
             .frame(width: sw * 0.05, height: sw * 0.05)
             .foregroundStyle(Color(Colors.green.rawValue))
           Text(String(notCount!))
-            .modifier(Description())
+            .modifier(Description(color:Colors.white.rawValue))
             .foregroundStyle(.white)
         }
       }

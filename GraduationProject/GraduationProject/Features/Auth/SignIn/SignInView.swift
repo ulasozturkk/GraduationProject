@@ -21,6 +21,7 @@ struct SignInView: View {
                 
         CustomButton(buttonText: "Sign In") {
           VM.signInWHelper()
+          
           if VM.errorMessage != "" {
             showAlert = true
           }
