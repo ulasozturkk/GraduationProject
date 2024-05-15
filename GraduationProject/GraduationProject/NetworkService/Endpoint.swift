@@ -25,7 +25,7 @@ enum Endpoint {
 
   case createUser(email: String, password: String)
   case logInUser(email: String, password: String)
-
+  case getAllUsers
   // MARK: - FAV PLACE
 
   case addFavPlace(userID: String, title: String, description: String, latitude: Double, longitude: Double)
@@ -44,7 +44,7 @@ enum Endpoint {
 
   // MARK: - MEETING
 
-  case createMeeting(title: String, description: String, time: Date, isOnline: Bool, meetingLink: String?,
+  case createMeeting(title: String, description: String, time: String, isOnline: Bool, meetingLink: String?,
                      latitude: Double?, longitude: Double?, ownerID: String, invitedUsersIDList: [String])
   case getUserMeetingInvitations
   case getUserMeetings
@@ -73,7 +73,8 @@ extension Endpoint: EndPointProtocol {
       return "/api/User/createUser"
     case .logInUser:
       return "/api/User/logInUser"
-        
+    case .getAllUsers:
+      return "/api/User/getAllUsers"
         // MARK: - FAV PLACE
         
     case .addFavPlace:
@@ -189,7 +190,7 @@ extension Endpoint: EndPointProtocol {
     
   var method: HTTPMethod {
     switch self {
-    case .createUser, .logInUser, .addFavPlace, .sendFriendRequest, .createMeeting, .addMessage:
+    case .createUser, .logInUser, .addFavPlace, .sendFriendRequest, .createMeeting, .addMessage, .getAllUsers:
       return .post
     case .getFavPlaceByID, .getUsersFavPlaces, .getUsersFriends, .getUsersInvites, .getUserMeetingInvitations, .getUserMeetings, .getMessages:
       return .get
@@ -199,13 +200,12 @@ extension Endpoint: EndPointProtocol {
   }
     
   var header: [String: String]? { // TODO: burası keychaine set edilecek
-    if let token = UserDefaults.standard.string(forKey: "AuthToken") {
+    if let token = SessionManager.shared.currentServiceUser?.accessToken {
       return ["Authorization": "Bearer \(token)"]
     } else {
-//      let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjgyNzQ3NmQzLTM2M2QtNDM4Yi1hNWZhLTg3OThjMTU1YWM5NSIsImVtYWlsIjoic3dpZnR0ZXN0MUB0ZXN0LmNvbSIsImp0aSI6IjM5MzVkMjE0LTNlNWUtNDJjZi05MWZlLTY4YmZhMjQzNjJmMSIsImF1ZCI6Ind3dy51bGFzb3p0dXJrLmRldiIsIm5iZiI6MTcxNDMxMjM3NiwiZXhwIjoxNzE0MzMwMzc2LCJpc3MiOiJ3d3cudWxhc296dHVyay5kZXYifQ.If1Iqr8XPP2noaDhumBGFkqEbH8sgcNoRedRcBZNZcA"
-//
-//      return ["Authorization": "Bearer \(token)"]
-      return nil
+     let token = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjgyNzQ3NmQzLTM2M2QtNDM4Yi1hNWZhLTg3OThjMTU1YWM5NSIsImVtYWlsIjoic3dpZnR0ZXN0MUB0ZXN0LmNvbSIsImp0aSI6ImRjNDE3ZGRhLTQ5YzAtNDhlMy05ODlmLTcwNmQwOGI0NjlkNSIsImF1ZCI6Ind3dy51bGFzb3p0dXJrLmRldiIsIm5iZiI6MTcxNTcxMDk0NSwiZXhwIjoxNzE1NzI4OTQ1LCJpc3MiOiJ3d3cudWxhc296dHVyay5kZXYifQ.RcyjfEBVLQIIhiYNZRVPO-O3Tw0gf9rjehDSu8P_mT8"
+
+      return ["Authorization": "Bearer \(token)"]
     }
   }
     
@@ -228,10 +228,6 @@ extension Endpoint: EndPointProtocol {
     var request = URLRequest(url: components.url!)
     request.httpMethod = method.rawValue
     request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-    if (self.path == "/api/Meeting/getUserMeetings") {
-      let token = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjgyNzQ3NmQzLTM2M2QtNDM4Yi1hNWZhLTg3OThjMTU1YWM5NSIsImVtYWlsIjoic3dpZnR0ZXN0MUB0ZXN0LmNvbSIsImp0aSI6IjM4NGQwZDU1LTU2ZDAtNGJlMy05N2ZiLWU0M2NhNDQwZWIwNCIsImF1ZCI6Ind3dy51bGFzb3p0dXJrLmRldiIsIm5iZiI6MTcxNTY4NDM1NywiZXhwIjoxNzE1NzAyMzU3LCJpc3MiOiJ3d3cudWxhc296dHVyay5kZXYifQ.YbO66YK35bGn1mt5DXNfpUj7yT14Z-PoqnLRDn2kI9Q"
-      request.setValue(token, forHTTPHeaderField: "Authorization")
-    }
     
     if let parameters = parameters {
       do {
@@ -241,14 +237,14 @@ extension Endpoint: EndPointProtocol {
           let dateFormatter = DateFormatter()
           dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
           let formattedTime = dateFormatter.string(from: time)
-          modifiedParameters["time"] = formattedTime
+          modifiedParameters["time"] = time
         }
 
-        // Daha sonra dönüştürülmüş parametreleri JSON'a dönüştürün
-        let jsonData = try JSONSerialization.data(withJSONObject: modifiedParameters, options: [])
-        request.httpBody = jsonData
-      } catch {
-        print(error.localizedDescription)
+        
+        let jsonData = try? JSONSerialization.data(withJSONObject: modifiedParameters, options: [])
+        request.httpBody = jsonData!
+        
+        
       }
     }
     if let stringParameters = stringParameters {
@@ -271,8 +267,6 @@ extension Endpoint: EndPointProtocol {
         request.setValue(value, forHTTPHeaderField: key)
       }
     }
-  
-    
     return request
   }
 }

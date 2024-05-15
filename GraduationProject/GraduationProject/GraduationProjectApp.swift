@@ -1,6 +1,6 @@
 
 
-
+import MapKit
 import SwiftUI
 
 class AppDelegate: NSObject, UIApplicationDelegate {
@@ -21,6 +21,7 @@ struct GraduationProjectApp: App {
     WindowGroup {
       SignInView()
         .environment(\.managedObjectContext, persistenceController.container.viewContext)
+        
     }
   }
 }

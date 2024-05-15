@@ -20,6 +20,7 @@ class NetworkManager{
       }
       
       do {
+        print(String(data: data, encoding: .utf8))
         let decodedData = try JSONDecoder().decode(T.self, from: data)
         completion(.success(decodedData))
       } catch {
@@ -43,6 +44,10 @@ class NetworkManager{
     let endpoint = Endpoint.getUserMeetings
     createRequest(endpoint, completion: completion)
     
+  }
+  func getAllUsers(completion: @escaping (Result<GetUserResponse,Error>)->Void) {
+    let endpoint = Endpoint.getAllUsers
+    createRequest(endpoint, completion: completion)
   }
 
   

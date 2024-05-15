@@ -4,8 +4,7 @@ class MeetingsViewModel: ObservableObject {
   @Published var meetingResponse: UserMeetingResponse = UserMeetingResponse(data: [], statusCode: 0, error: nil)
 
   func fetchMeetings() {
-
-    if let currentUserID = SessionManager.shared.currentServiceUser?.userID {
+    if (SessionManager.shared.currentServiceUser?.userID) != nil {
       NetworkManager.shared.getUserMeetings { result in
         switch result {
         case .success(let res):

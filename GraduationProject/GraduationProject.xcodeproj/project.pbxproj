@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		522AB7512BF3EABB00BE21CD /* CreateMeetingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522AB7502BF3EABB00BE21CD /* CreateMeetingViewModel.swift */; };
+		522AB7532BF3EB3100BE21CD /* CreateMeetingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522AB7522BF3EB3100BE21CD /* CreateMeetingView.swift */; };
+		522AB7552BF3EF0600BE21CD /* GetUserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522AB7542BF3EF0600BE21CD /* GetUserResponse.swift */; };
+		522AB7572BF3FF2200BE21CD /* LocationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522AB7562BF3FF2200BE21CD /* LocationDetailView.swift */; };
+		522AB7592BF3FF8800BE21CD /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522AB7582BF3FF8800BE21CD /* Place.swift */; };
+		522AB75B2BF401E500BE21CD /* MapDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522AB75A2BF401E500BE21CD /* MapDetailView.swift */; };
+		522AB75D2BF404B800BE21CD /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522AB75C2BF404B800BE21CD /* LocationManager.swift */; };
+		522AB75F2BF49BFD00BE21CD /* FavPlaceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522AB75E2BF49BFD00BE21CD /* FavPlaceResponse.swift */; };
+		522AB7612BF4AF5600BE21CD /* CreateMeetingResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522AB7602BF4AF5600BE21CD /* CreateMeetingResponse.swift */; };
+		522AB7632BF4B44B00BE21CD /* CreateMeetingDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522AB7622BF4B44B00BE21CD /* CreateMeetingDTO.swift */; };
 		522F46542BF24776002F8796 /* CustomIconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522F46532BF24776002F8796 /* CustomIconButton.swift */; };
 		522F46562BF2478E002F8796 /* CustomImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522F46552BF2478E002F8796 /* CustomImage.swift */; };
 		522F46592BF247BB002F8796 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522F46582BF247BB002F8796 /* Endpoint.swift */; };
@@ -42,6 +52,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		522AB7502BF3EABB00BE21CD /* CreateMeetingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateMeetingViewModel.swift; sourceTree = "<group>"; };
+		522AB7522BF3EB3100BE21CD /* CreateMeetingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateMeetingView.swift; sourceTree = "<group>"; };
+		522AB7542BF3EF0600BE21CD /* GetUserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserResponse.swift; sourceTree = "<group>"; };
+		522AB7562BF3FF2200BE21CD /* LocationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailView.swift; sourceTree = "<group>"; };
+		522AB7582BF3FF8800BE21CD /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		522AB75A2BF401E500BE21CD /* MapDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapDetailView.swift; sourceTree = "<group>"; };
+		522AB75C2BF404B800BE21CD /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		522AB75E2BF49BFD00BE21CD /* FavPlaceResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavPlaceResponse.swift; sourceTree = "<group>"; };
+		522AB7602BF4AF5600BE21CD /* CreateMeetingResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateMeetingResponse.swift; sourceTree = "<group>"; };
+		522AB7622BF4B44B00BE21CD /* CreateMeetingDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateMeetingDTO.swift; sourceTree = "<group>"; };
 		522F46532BF24776002F8796 /* CustomIconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomIconButton.swift; sourceTree = "<group>"; };
 		522F46552BF2478E002F8796 /* CustomImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImage.swift; sourceTree = "<group>"; };
 		522F46582BF247BB002F8796 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
@@ -88,6 +108,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		522AB74C2BF3E5F100BE21CD /* CreateMeeting */ = {
+			isa = PBXGroup;
+			children = (
+				522AB7502BF3EABB00BE21CD /* CreateMeetingViewModel.swift */,
+				522AB7522BF3EB3100BE21CD /* CreateMeetingView.swift */,
+				522AB7562BF3FF2200BE21CD /* LocationDetailView.swift */,
+				522AB75A2BF401E500BE21CD /* MapDetailView.swift */,
+			);
+			path = CreateMeeting;
+			sourceTree = "<group>";
+		};
+		522AB74D2BF3EA6B00BE21CD /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				522AB7622BF4B44B00BE21CD /* CreateMeetingDTO.swift */,
+			);
+			path = DTO;
+			sourceTree = "<group>";
+		};
 		522F46572BF247B0002F8796 /* NetworkService */ = {
 			isa = PBXGroup;
 			children = (
@@ -103,6 +142,9 @@
 				522F46612BF2488B002F8796 /* AuthResponse.swift */,
 				522F46632BF24906002F8796 /* MeetingResponse.swift */,
 				523CF5932BF3963A00CC0F92 /* UserMeetingResponse.swift */,
+				522AB7542BF3EF0600BE21CD /* GetUserResponse.swift */,
+				522AB75E2BF49BFD00BE21CD /* FavPlaceResponse.swift */,
+				522AB7602BF4AF5600BE21CD /* CreateMeetingResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -147,6 +189,7 @@
 		523CF58C2BF37BB500CC0F92 /* Meeting */ = {
 			isa = PBXGroup;
 			children = (
+				522AB74C2BF3E5F100BE21CD /* CreateMeeting */,
 				523CF58D2BF37BC200CC0F92 /* MeetingsView.swift */,
 				523CF58F2BF37BCC00CC0F92 /* MeetingsViewModel.swift */,
 				523CF5912BF37D3C00CC0F92 /* MeetingDetailView.swift */,
@@ -210,6 +253,7 @@
 			isa = PBXGroup;
 			children = (
 				525103122BB0502500575DE6 /* SessionManager.swift */,
+				522AB75C2BF404B800BE21CD /* LocationManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -227,9 +271,11 @@
 		525103172BB051EA00575DE6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				522AB74D2BF3EA6B00BE21CD /* DTO */,
 				522F46602BF2486F002F8796 /* Response */,
 				522F465C2BF2483F002F8796 /* Meeting.swift */,
 				522F465E2BF2485B002F8796 /* User.swift */,
+				522AB7582BF3FF8800BE21CD /* Place.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -330,6 +376,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				522AB7572BF3FF2200BE21CD /* LocationDetailView.swift in Sources */,
 				525103242BB0572E00575DE6 /* CustomTextField.swift in Sources */,
 				525102BF2BB04C1300575DE6 /* Persistence.swift in Sources */,
 				525103212BB0570300575DE6 /* Colors.swift in Sources */,
@@ -340,6 +387,7 @@
 				522F46702BF25202002F8796 /* SignInView.swift in Sources */,
 				525103262BB0573F00575DE6 /* CustomButton.swift in Sources */,
 				523CF5922BF37D3C00CC0F92 /* MeetingDetailView.swift in Sources */,
+				522AB7532BF3EB3100BE21CD /* CreateMeetingView.swift in Sources */,
 				525103192BB0522600575DE6 /* StaticFuncs.swift in Sources */,
 				522F465F2BF2485B002F8796 /* User.swift in Sources */,
 				5251032A2BB0576200575DE6 /* CustomBackButton.swift in Sources */,
@@ -347,18 +395,26 @@
 				525102B62BB04C1200575DE6 /* GraduationProjectApp.swift in Sources */,
 				522F46562BF2478E002F8796 /* CustomImage.swift in Sources */,
 				522F46722BF25217002F8796 /* SignInViewModel.swift in Sources */,
+				522AB7592BF3FF8800BE21CD /* Place.swift in Sources */,
+				522AB7512BF3EABB00BE21CD /* CreateMeetingViewModel.swift in Sources */,
 				523CF5942BF3963A00CC0F92 /* UserMeetingResponse.swift in Sources */,
+				522AB75B2BF401E500BE21CD /* MapDetailView.swift in Sources */,
 				525102C22BB04C1300575DE6 /* GraduationProject.xcdatamodeld in Sources */,
 				522F46592BF247BB002F8796 /* Endpoint.swift in Sources */,
 				522F46542BF24776002F8796 /* CustomIconButton.swift in Sources */,
 				525103282BB0575000575DE6 /* CustomToggle.swift in Sources */,
+				522AB7552BF3EF0600BE21CD /* GetUserResponse.swift in Sources */,
 				525103132BB0502500575DE6 /* SessionManager.swift in Sources */,
+				522AB75F2BF49BFD00BE21CD /* FavPlaceResponse.swift in Sources */,
+				522AB7612BF4AF5600BE21CD /* CreateMeetingResponse.swift in Sources */,
 				523CF5902BF37BCC00CC0F92 /* MeetingsViewModel.swift in Sources */,
+				522AB7632BF4B44B00BE21CD /* CreateMeetingDTO.swift in Sources */,
 				522F465D2BF2483F002F8796 /* Meeting.swift in Sources */,
 				522F46642BF24906002F8796 /* MeetingResponse.swift in Sources */,
 				522F466C2BF250D1002F8796 /* SignUpViewModel.swift in Sources */,
 				5251032E2BB0578700575DE6 /* TextViewModifier.swift in Sources */,
 				522F466E2BF250FB002F8796 /* TabBar.swift in Sources */,
+				522AB75D2BF404B800BE21CD /* LocationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -495,6 +551,7 @@
 				DEVELOPMENT_TEAM = 2758CUH3C2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = location;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -524,6 +581,7 @@
 				DEVELOPMENT_TEAM = 2758CUH3C2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = location;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

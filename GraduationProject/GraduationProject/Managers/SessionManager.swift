@@ -8,7 +8,7 @@ class SessionManager {
   private init() {}
 
   func setServiceUser(serviceUserResponse: AuthResponse) {
-    self.currentServiceUser = User(userID: serviceUserResponse.data.email,
+    self.currentServiceUser = User(userID: serviceUserResponse.data.userID,
                                    email: serviceUserResponse.data.email,
                                    accessToken: serviceUserResponse.data.accessToken,
                                    tokenExpiration: serviceUserResponse.data.accessTokenExpiration)

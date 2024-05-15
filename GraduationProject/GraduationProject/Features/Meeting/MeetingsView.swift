@@ -9,26 +9,20 @@ struct MeetingsView: View {
 
   var body: some View {
     NavigationStack {
-      VStack(alignment: .leading) {
-
-        ForEach(VM.meetingResponse.data , id: \.meetingID) { meeting in
-          NavigationLink {
-            MeetingDetailView(meeting: meeting)
-          } label : {
-            CardView(meeting: meeting)
+      VStack(alignment: .center) {
+        ScrollView{
+          ForEach(VM.meetingResponse.data , id: \.meetingID) { meeting in
+            NavigationLink {
+              MeetingDetailView(meeting: meeting)
+            } label : {
+              CardView(meeting: meeting)
+            }
           }
         }
-//        List($VM.meetings) {
-//          NavigationLink {
-//            MeetingDetailView(meeting: VM.meetings)
-//              .toolbar(.hidden, for: .tabBar)
-//          } label: {
-//            CardView(meeting: meeting.data)
-//          }
-//        }.scrollContentBackground(.hidden)
           .refreshable {
             VM.fetchMeetings()
           }
+        Spacer()
         BottomBarView(isCreatePresented: $isCreatePresented)
       }.navigationTitle("Meetings")
         .navigationBarTitleDisplayMode(.large)
@@ -85,13 +79,13 @@ struct BottomBarView: View {
   @Binding var isCreatePresented: Bool
   var body: some View {
     HStack {
-      CustomIconButton(action: {}, buttonImage: .addMessage, isNotificationButton: true, notCount: 1) // şimdilik 1
+      CustomIconButton(action: {}, buttonImage: .messageIcon, isNotificationButton: true, notCount: 1) // şimdilik 1
       // TODO: bu butonlar firebaseden datalarla bağlanacak
       Spacer()
       CustomIconButton(action: {
         isCreatePresented = true
-      }, buttonImage: .addMeet).fullScreenCover(isPresented: $isCreatePresented, content: {
-       // CreateMeetingView()
+      }, buttonImage: .plusbutton).fullScreenCover(isPresented: $isCreatePresented, content: {
+       CreateMeetingView()
       })
     }.padding()
   }
