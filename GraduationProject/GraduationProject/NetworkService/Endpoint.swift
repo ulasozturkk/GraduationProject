@@ -8,7 +8,7 @@ protocol EndPointProtocol {
   var method: HTTPMethod { get }
   var header: [String: String]? { get }
   var parameters: [String: Any]? { get }
-  var stringParameters: String? { get }
+
   var doubleParameters: Double? { get }
   func request() -> URLRequest
 }
@@ -165,19 +165,17 @@ extension Endpoint: EndPointProtocol {
       return ["email": email, "password": password]
     } else if case .logInUser(let email, let password) = self {
       return ["email": email, "password": password]
-    } else { return nil }
-  }
-    
-  var stringParameters: String? {
-    switch self {
-    case .acceptMeeting(let meetingID),
-         .rejectMeeting(let meetingID),
-         .deleteMeeting(let meetingID):
-      return meetingID
-    default:
-      return nil
+    } else if case .acceptMeeting(let meetingID) = self {
+      return ["meetingID": meetingID]
+    } else if case .rejectMeeting(let meetingID) = self {
+      return ["meetingID": meetingID]
+    } else if case .deleteMeeting(let meetingID) = self {
+      return ["meetingID": meetingID]
     }
+    
+    else { return nil }
   }
+  
 
   var doubleParameters: Double? {
     switch self {
@@ -190,11 +188,11 @@ extension Endpoint: EndPointProtocol {
     
   var method: HTTPMethod {
     switch self {
-    case .createUser, .logInUser, .addFavPlace, .sendFriendRequest, .createMeeting, .addMessage, .getAllUsers:
+    case .createUser, .logInUser, .addFavPlace, .sendFriendRequest, .createMeeting,.acceptMeeting, .addMessage, .getAllUsers:
       return .post
     case .getFavPlaceByID, .getUsersFavPlaces, .getUsersFriends, .getUsersInvites, .getUserMeetingInvitations, .getUserMeetings, .getMessages:
       return .get
-    case .deleteFavPlace, .updateFavPlace, .acceptInvite, .rejectInvite, .acceptMeeting, .rejectMeeting, .deleteMeeting, .updateMeeting, .reviewMeeting:
+    case .deleteFavPlace, .updateFavPlace, .acceptInvite, .rejectInvite,  .rejectMeeting, .deleteMeeting, .updateMeeting, .reviewMeeting:
       return .put
     }
   }
@@ -242,16 +240,9 @@ extension Endpoint: EndPointProtocol {
 
         
         let jsonData = try? JSONSerialization.data(withJSONObject: modifiedParameters, options: [])
+        print(jsonData)
         request.httpBody = jsonData!
-        
-        
-      }
-    }
-    if let stringParameters = stringParameters {
-      do {
-        request.httpBody = try JSONSerialization.data(withJSONObject: stringParameters)
-      } catch {
-        print(error.localizedDescription)
+
       }
     }
       

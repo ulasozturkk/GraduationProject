@@ -5,6 +5,8 @@ struct MeetingsView: View {
   @State private var searhcTerm = ""
   @State private var isProfilePresented: Bool = false
   @State private var isCreatePresented: Bool = false
+  @State private var isInvitesPresented: Bool = false
+  @State private var notCount : Int = 0
   let sw = UIScreen.main.bounds.width
 
   var body: some View {
@@ -23,7 +25,7 @@ struct MeetingsView: View {
             VM.fetchMeetings()
           }
         Spacer()
-        BottomBarView(isCreatePresented: $isCreatePresented)
+        BottomBarView(isCreatePresented: $isCreatePresented,isInvitesPresented: $isInvitesPresented,VM: VM)
       }.navigationTitle("Meetings")
         .navigationBarTitleDisplayMode(.large)
         .toolbar {
@@ -40,6 +42,7 @@ struct MeetingsView: View {
 
     }.onAppear {
       VM.fetchMeetings()
+      VM.fetchInvitations()
     }
     .searchable(text: $searhcTerm, prompt: "Search Meetings")
   }
@@ -77,10 +80,16 @@ struct CardView: View {
 
 struct BottomBarView: View {
   @Binding var isCreatePresented: Bool
+  @Binding var isInvitesPresented: Bool
+   var VM : MeetingsViewModel
   var body: some View {
     HStack {
-      CustomIconButton(action: {}, buttonImage: .messageIcon, isNotificationButton: true, notCount: 1) // şimdilik 1
-      // TODO: bu butonlar firebaseden datalarla bağlanacak
+      CustomIconButton(action: {
+        isInvitesPresented = true
+      }, buttonImage: .messageIcon, isNotificationButton: true, notCount: VM.userInvitationsResponse.data.count).fullScreenCover(isPresented: $isInvitesPresented, content: {
+        MeetingInvitationsView(VM:VM)
+      })
+
       Spacer()
       CustomIconButton(action: {
         isCreatePresented = true
@@ -88,5 +97,8 @@ struct BottomBarView: View {
        CreateMeetingView()
       })
     }.padding()
+      .onAppear{
+        VM.fetchInvitations()
+      }
   }
 }

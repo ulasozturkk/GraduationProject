@@ -17,6 +17,9 @@
 		522AB75F2BF49BFD00BE21CD /* FavPlaceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522AB75E2BF49BFD00BE21CD /* FavPlaceResponse.swift */; };
 		522AB7612BF4AF5600BE21CD /* CreateMeetingResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522AB7602BF4AF5600BE21CD /* CreateMeetingResponse.swift */; };
 		522AB7632BF4B44B00BE21CD /* CreateMeetingDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522AB7622BF4B44B00BE21CD /* CreateMeetingDTO.swift */; };
+		522AB7662BF5E0A800BE21CD /* MeetingInvitationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522AB7652BF5E0A800BE21CD /* MeetingInvitationsView.swift */; };
+		522AB7682BF5E8BB00BE21CD /* CustomChoiceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522AB7672BF5E8BB00BE21CD /* CustomChoiceButton.swift */; };
+		522AB76A2BF5FF6400BE21CD /* NoDataResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522AB7692BF5FF6400BE21CD /* NoDataResponse.swift */; };
 		522F46542BF24776002F8796 /* CustomIconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522F46532BF24776002F8796 /* CustomIconButton.swift */; };
 		522F46562BF2478E002F8796 /* CustomImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522F46552BF2478E002F8796 /* CustomImage.swift */; };
 		522F46592BF247BB002F8796 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522F46582BF247BB002F8796 /* Endpoint.swift */; };
@@ -62,6 +65,9 @@
 		522AB75E2BF49BFD00BE21CD /* FavPlaceResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavPlaceResponse.swift; sourceTree = "<group>"; };
 		522AB7602BF4AF5600BE21CD /* CreateMeetingResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateMeetingResponse.swift; sourceTree = "<group>"; };
 		522AB7622BF4B44B00BE21CD /* CreateMeetingDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateMeetingDTO.swift; sourceTree = "<group>"; };
+		522AB7652BF5E0A800BE21CD /* MeetingInvitationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingInvitationsView.swift; sourceTree = "<group>"; };
+		522AB7672BF5E8BB00BE21CD /* CustomChoiceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomChoiceButton.swift; sourceTree = "<group>"; };
+		522AB7692BF5FF6400BE21CD /* NoDataResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoDataResponse.swift; sourceTree = "<group>"; };
 		522F46532BF24776002F8796 /* CustomIconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomIconButton.swift; sourceTree = "<group>"; };
 		522F46552BF2478E002F8796 /* CustomImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImage.swift; sourceTree = "<group>"; };
 		522F46582BF247BB002F8796 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
@@ -127,6 +133,14 @@
 			path = DTO;
 			sourceTree = "<group>";
 		};
+		522AB7642BF5E09500BE21CD /* MeetingInvitations */ = {
+			isa = PBXGroup;
+			children = (
+				522AB7652BF5E0A800BE21CD /* MeetingInvitationsView.swift */,
+			);
+			path = MeetingInvitations;
+			sourceTree = "<group>";
+		};
 		522F46572BF247B0002F8796 /* NetworkService */ = {
 			isa = PBXGroup;
 			children = (
@@ -145,6 +159,7 @@
 				522AB7542BF3EF0600BE21CD /* GetUserResponse.swift */,
 				522AB75E2BF49BFD00BE21CD /* FavPlaceResponse.swift */,
 				522AB7602BF4AF5600BE21CD /* CreateMeetingResponse.swift */,
+				522AB7692BF5FF6400BE21CD /* NoDataResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -189,6 +204,7 @@
 		523CF58C2BF37BB500CC0F92 /* Meeting */ = {
 			isa = PBXGroup;
 			children = (
+				522AB7642BF5E09500BE21CD /* MeetingInvitations */,
 				522AB74C2BF3E5F100BE21CD /* CreateMeeting */,
 				523CF58D2BF37BC200CC0F92 /* MeetingsView.swift */,
 				523CF58F2BF37BCC00CC0F92 /* MeetingsViewModel.swift */,
@@ -289,6 +305,7 @@
 				525103292BB0576200575DE6 /* CustomBackButton.swift */,
 				522F46532BF24776002F8796 /* CustomIconButton.swift */,
 				522F46552BF2478E002F8796 /* CustomImage.swift */,
+				522AB7672BF5E8BB00BE21CD /* CustomChoiceButton.swift */,
 			);
 			path = CustomComponents;
 			sourceTree = "<group>";
@@ -377,8 +394,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				522AB7572BF3FF2200BE21CD /* LocationDetailView.swift in Sources */,
+				522AB76A2BF5FF6400BE21CD /* NoDataResponse.swift in Sources */,
 				525103242BB0572E00575DE6 /* CustomTextField.swift in Sources */,
 				525102BF2BB04C1300575DE6 /* Persistence.swift in Sources */,
+				522AB7662BF5E0A800BE21CD /* MeetingInvitationsView.swift in Sources */,
 				525103212BB0570300575DE6 /* Colors.swift in Sources */,
 				522F465B2BF247CB002F8796 /* NetworkManager.swift in Sources */,
 				523CF58E2BF37BC200CC0F92 /* MeetingsView.swift in Sources */,
@@ -411,6 +430,7 @@
 				522AB7632BF4B44B00BE21CD /* CreateMeetingDTO.swift in Sources */,
 				522F465D2BF2483F002F8796 /* Meeting.swift in Sources */,
 				522F46642BF24906002F8796 /* MeetingResponse.swift in Sources */,
+				522AB7682BF5E8BB00BE21CD /* CustomChoiceButton.swift in Sources */,
 				522F466C2BF250D1002F8796 /* SignUpViewModel.swift in Sources */,
 				5251032E2BB0578700575DE6 /* TextViewModifier.swift in Sources */,
 				522F466E2BF250FB002F8796 /* TabBar.swift in Sources */,

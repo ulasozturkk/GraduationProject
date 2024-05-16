@@ -21,6 +21,7 @@ struct Meeting: Codable {
     case meetingLink
     case latitude
     case longitude
+
     case createdDate
     case updatedDate
     case reviewMean

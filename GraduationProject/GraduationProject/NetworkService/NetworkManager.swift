@@ -20,7 +20,8 @@ class NetworkManager{
       }
       
       do {
-        print(String(data: data, encoding: .utf8))
+       
+        
         let decodedData = try JSONDecoder().decode(T.self, from: data)
         completion(.success(decodedData))
       } catch {
