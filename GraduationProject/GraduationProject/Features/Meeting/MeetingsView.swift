@@ -2,6 +2,7 @@ import SwiftUI
 
 struct MeetingsView: View {
   @StateObject var VM = MeetingsViewModel()
+  
   @State private var searhcTerm = ""
   @State private var isProfilePresented: Bool = false
   @State private var isCreatePresented: Bool = false
@@ -34,7 +35,7 @@ struct MeetingsView: View {
               isProfilePresented = true
             }, buttonImage: .profileIcon)
               .fullScreenCover(isPresented: $isProfilePresented, content: {
-//                ProfileView(currentUser: SessionManager.shared.currentUser!)
+                ProfileView(currentUser: SessionManager.shared.currentServiceUser!)
                 Text("a")
               })
           }

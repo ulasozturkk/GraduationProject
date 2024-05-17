@@ -4,15 +4,18 @@ struct CustomIconButton: View {
   let action: () -> Void
   let sh = UIScreen.main.bounds.height
   let sw = UIScreen.main.bounds.width
+  let customSize: CGFloat?
   let buttonImage: ImageResource
   let isNotificationButton: Bool?
   let notCount: Int?
+
 
   init(action: @escaping () -> Void, buttonImage: ImageResource, isNotificationButton: Bool?, notCount: Int?) {
     self.action = action
     self.buttonImage = buttonImage
     self.isNotificationButton = isNotificationButton
     self.notCount = notCount
+    self.customSize = nil
   }
 
   init(action: @escaping () -> Void,buttonImage: ImageResource){
@@ -20,6 +23,14 @@ struct CustomIconButton: View {
     self.buttonImage = buttonImage
     self.isNotificationButton = nil
     self.notCount = nil
+    self.customSize = nil
+  }
+  init(action: @escaping ()->Void,buttonImage:ImageResource, customSize:CGFloat?){
+    self.action = action
+    self.buttonImage=buttonImage
+    self.isNotificationButton=nil
+    self.notCount = nil
+    self.customSize = customSize
   }
 
   var body: some View {
@@ -43,7 +54,8 @@ struct CustomIconButton: View {
       Button(action: action) {
         Image(buttonImage)
           .resizable()
-          .frame(width: sw * 0.15, height: sw * 0.15)
+          .frame(width: customSize ?? sw * 0.15, height:customSize ?? sw * 0.15)
+          
       }
     }
   }

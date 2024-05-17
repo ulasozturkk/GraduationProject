@@ -130,55 +130,56 @@ struct CreateMeetingView: View {
     }.padding()
   }
   
-  struct UserListView: View {
-    @StateObject var VM: CreateMeetingViewModel
-    @Environment(\.dismiss) var dismiss
-    let sw = UIScreen.main.bounds.width
-    
-    var body: some View {
-      NavigationView {
-        ScrollView {
-          VStack {
-            ForEach(VM.userlist.data.indices, id: \.self) { index in
-              if index < VM.invitedUserCheckList.count { // Check if index is valid
-                ZStack {
-                  HStack {
-                    Text(VM.userlist.data[index].email)
-                    Spacer()
-                    Image(systemName: VM.invitedUserCheckList[index] ? "checkmark.square.fill" : "square")
-                      .resizable()
-                      .aspectRatio(contentMode: .fit)
-                      .frame(width: 24, height: 24)
-                      .foregroundColor(Color(Colors.green.rawValue))
-                      .onTapGesture {
-                        VM.invitedUserCheckList[index].toggle()
-                      }
-                  }
+  
+}
+struct UserListView: View {
+  @StateObject var VM: CreateMeetingViewModel
+  @Environment(\.dismiss) var dismiss
+  let sw = UIScreen.main.bounds.width
+  
+  var body: some View {
+    NavigationView {
+      ScrollView {
+        VStack {
+          ForEach(VM.userlist.data.indices, id: \.self) { index in
+            if index < VM.invitedUserCheckList.count { // Check if index is valid
+              ZStack {
+                HStack {
+                  Text(VM.userlist.data[index].email)
+                  Spacer()
+                  Image(systemName: VM.invitedUserCheckList[index] ? "checkmark.square.fill" : "square")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 24, height: 24)
+                    .foregroundColor(Color(Colors.green.rawValue))
+                    .onTapGesture {
+                      VM.invitedUserCheckList[index].toggle()
+                    }
                 }
               }
             }
           }
-          .padding()
         }
-        .navigationTitle("Invite Users")
-        .toolbar {
-          ToolbarItem(placement: .topBarTrailing) {
-            Button("Save") {
-              VM.inviteUsers()
-              dismiss()
-            }
-            .modifier(SubTitle())
+        .padding()
+      }
+      .navigationTitle("Invite Users")
+      .toolbar {
+        ToolbarItem(placement: .topBarTrailing) {
+          Button("Save") {
+            VM.inviteUsers()
+            dismiss()
           }
-          ToolbarItem(placement: .topBarLeading) {
-            Button(action: {
-              if VM.invitedUserCheckList.contains(true) {
-                VM.removeAllSelected()
-              } else {
-                VM.toggleAll()
-              }
-            }) {
-              Text(VM.invitedUserCheckList.contains(true) ? "Remove All" : "All Select")
+          .modifier(SubTitle())
+        }
+        ToolbarItem(placement: .topBarLeading) {
+          Button(action: {
+            if VM.invitedUserCheckList.contains(true) {
+              VM.removeAllSelected()
+            } else {
+              VM.toggleAll()
             }
+          }) {
+            Text(VM.invitedUserCheckList.contains(true) ? "Remove All" : "All Select")
           }
         }
       }

@@ -26,6 +26,7 @@ enum Endpoint {
   case createUser(email: String, password: String)
   case logInUser(email: String, password: String)
   case getAllUsers
+  case getUsersByIDs(idList: [String])
   // MARK: - FAV PLACE
 
   case addFavPlace(userID: String, title: String, description: String, latitude: Double, longitude: Double)
@@ -75,6 +76,8 @@ extension Endpoint: EndPointProtocol {
       return "/api/User/logInUser"
     case .getAllUsers:
       return "/api/User/getAllUsers"
+    case .getUsersByIDs:
+      return "/api/User/GetUsersByIDs"
         // MARK: - FAV PLACE
         
     case .addFavPlace:
@@ -146,7 +149,11 @@ extension Endpoint: EndPointProtocol {
               "longitude": longitude,
               "ownerID": ownerID,
               "invitedUsersIDList": invitedUsersIDList]
-    } else if case .updateMeeting(let meetingID, let title, let description, let time, let isOnline, let meetingLink, let latitude, let longitude, let ownerID, let invitedUsersIDList) = self {
+    }
+    else if case .getUsersByIDs(let idList) = self {
+      return ["userIDList": idList]
+    }
+    else if case .updateMeeting(let meetingID, let title, let description, let time, let isOnline, let meetingLink, let latitude, let longitude, let ownerID, let invitedUsersIDList) = self {
       return [
         "meetingID": meetingID,
         "title": title,
@@ -188,7 +195,7 @@ extension Endpoint: EndPointProtocol {
     
   var method: HTTPMethod {
     switch self {
-    case .createUser, .logInUser, .addFavPlace, .sendFriendRequest, .createMeeting,.acceptMeeting, .addMessage, .getAllUsers:
+    case .createUser, .logInUser, .addFavPlace, .sendFriendRequest, .createMeeting,.acceptMeeting, .addMessage,.getUsersByIDs, .getAllUsers:
       return .post
     case .getFavPlaceByID, .getUsersFavPlaces, .getUsersFriends, .getUsersInvites, .getUserMeetingInvitations, .getUserMeetings, .getMessages:
       return .get
