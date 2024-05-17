@@ -1,48 +1,67 @@
 import Foundation
 
 class MeetingsViewModel: ObservableObject {
-  @Published var meetingResponse: UserMeetingResponse = UserMeetingResponse(data: [], statusCode: 0, error: nil)
-  @Published var userInvitationsResponse : UserMeetingResponse = UserMeetingResponse(data: [], statusCode: 0, error: nil)
+  @Published var meetingResponse: UserMeetingResponse = .init(data: [], statusCode: 0, error: nil)
+  @Published var userInvitationsResponse: UserMeetingResponse = .init(data: [], statusCode: 0, error: nil)
+  @Published var friendRequsestResponse: UsersFriendsResponse = .init(data: [], statusCode: 0, error: nil)
+  @Published var isLoading: Bool = false
+  
   func fetchMeetings() {
+    self.isLoading = true
     if (SessionManager.shared.currentServiceUser?.userID) != nil {
-      NetworkManager.shared.getUserMeetings { result in
-        switch result {
-        case .success(let res):
-          self.meetingResponse = res
-        case .failure(let err):
-          print(err.localizedDescription)
+      DispatchQueue.global().asyncAfter(deadline: .now() + 1) {
+        DispatchQueue.main.async {
+          NetworkManager.shared.getUserMeetings { result in
+            switch result {
+            case .success(let res):
+              self.meetingResponse = res
+              self.isLoading = false
+            case .failure(let err):
+              print(err.localizedDescription)
+              self.isLoading = false
+            }
+          }
         }
       }
     }
   }
-  private func getUserMeetingInvitations(completion: @escaping (Result<UserMeetingResponse,Error>)-> Void){
+
+  private func getUserMeetingInvitations(completion: @escaping (Result<UserMeetingResponse, Error>)-> Void) {
     if SessionManager.shared.currentServiceUser?.userID != nil {
-      var endpoint = Endpoint.getUserMeetingInvitations
+      let endpoint = Endpoint.getUserMeetingInvitations
       NetworkManager.shared.createRequest(endpoint, completion: completion)
     }
   }
   
-  func fetchInvitations(){
-    getUserMeetingInvitations { result in
-      switch result {
-      case .success(let response):
-        self.userInvitationsResponse = response
-      case .failure(let err):
-        print(err)
+  func fetchInvitations() {
+    self.isLoading = true
+    DispatchQueue.global().asyncAfter(deadline: .now() + 1) {
+      DispatchQueue.main.async {
+        self.getUserMeetingInvitations { result in
+          switch result {
+          case .success(let response):
+            self.userInvitationsResponse = response
+            self.isLoading = false
+          case .failure(let err):
+            print(err)
+            self.isLoading = false
+          }
+        }
       }
     }
   }
   
-  private func acceptMeeting(meetingID: String,completion: @escaping (Result<NoDataResponse,Error>)->Void){
+  private func acceptMeeting(meetingID: String, completion: @escaping (Result<NoDataResponse, Error>)->Void) {
     let endpoint = Endpoint.acceptMeeting(meetingID: meetingID)
     NetworkManager.shared.createRequest(endpoint, completion: completion)
   }
-  func accept(meetingID: String){
+
+  func accept(meetingID: String) {
     var meetingIndex = 0
-    acceptMeeting(meetingID: meetingID) { result in
+    self.acceptMeeting(meetingID: meetingID) { result in
       switch result {
       case .success(let res):
-        for (index,meeting )in self.userInvitationsResponse.data.enumerated() {
+        for (index, meeting) in self.userInvitationsResponse.data.enumerated() {
           if meeting.meetingID == meetingID {
             meetingIndex = index
           }
@@ -53,24 +72,99 @@ class MeetingsViewModel: ObservableObject {
       }
     }
   }
-  private func rejectMeeting(meetingID:String,completion: @escaping (Result<NoDataResponse,Error>)->Void){
+
+  private func rejectMeeting(meetingID: String, completion: @escaping (Result<NoDataResponse, Error>)->Void) {
     let endpoint = Endpoint.rejectMeeting(meetingID: meetingID)
     NetworkManager.shared.createRequest(endpoint, completion: completion)
   }
-  func reject(meetingID:String) {
+
+  func reject(meetingID: String) {
     var meetingIndex = 0
-    rejectMeeting(meetingID: meetingID) { result in
+    self.rejectMeeting(meetingID: meetingID) { result in
       switch result {
       case .success(let res):
-        for (index,meeting) in self.userInvitationsResponse.data.enumerated() {
+        for (index, meeting) in self.userInvitationsResponse.data.enumerated() {
           if meeting.meetingID == meetingID {
             meetingIndex = index
           }
-          
         }
         self.userInvitationsResponse.data.remove(at: meetingIndex)
       case .failure(let err):
         print(err)
+      }
+    }
+  }
+
+  private func fetchFriendInvites(completion: @escaping (Result<UsersFriendsResponse, Error>)->Void) {
+    let endpoint = Endpoint.getUsersInvites
+    NetworkManager.shared.createRequest(endpoint, completion: completion)
+  }
+
+  func getUsersInvites() {
+    self.isLoading = true
+    DispatchQueue.global().asyncAfter(deadline: .now() + 2) {
+      DispatchQueue.main.async {
+        self.fetchFriendInvites { result in
+          switch result {
+          case .success(let res):
+            self.friendRequsestResponse = res
+            self.isLoading = false
+          case .failure(let err):
+            print(err)
+            self.isLoading = false
+          }
+        }
+      }
+    }
+  }
+  private func acceptInvite(friendID:String,completion: @escaping (Result<NoDataResponse,Error>)->Void) {
+    let endpoint = Endpoint.acceptInvite(friendID: friendID)
+    NetworkManager.shared.createRequest(endpoint, completion: completion)
+  }
+  private func rejectInvite(friendID:String,completion: @escaping (Result<NoDataResponse,Error>)->Void) {
+    let endpoint = Endpoint.rejectInvite(friendID: friendID)
+    NetworkManager.shared.createRequest(endpoint, completion: completion)
+  }
+  func acceptFriend(friendID:String){
+    self.isLoading = true
+    var friendshipIndex = 0
+    DispatchQueue.global().asyncAfter(deadline: .now() + 1){
+      DispatchQueue.main.async {
+        self.acceptInvite(friendID: friendID) { result in
+          switch result {
+          case .success(let res):
+            for (index,invite) in self.friendRequsestResponse.data.enumerated() {
+              if invite.userID == friendID {
+                friendshipIndex = index
+              }
+            }
+            self.friendRequsestResponse.data.remove(at: friendshipIndex)
+          case .failure(let err):
+            print(err)
+          
+          }
+        }
+      }
+    }
+  }
+  func rejectFriend(friendID:String){
+    self.isLoading = true
+    var friendshipIndex = 0
+    DispatchQueue.global().asyncAfter(deadline: .now() + 1){
+      DispatchQueue.main.async {
+        self.rejectInvite(friendID: friendID) { result in
+          switch result {
+          case .success(let res):
+            for (index,invite) in self.friendRequsestResponse.data.enumerated() {
+              if invite.userID == friendID {
+                friendshipIndex = index
+              }
+            }
+            self.friendRequsestResponse.data.remove(at: friendshipIndex)
+          case .failure(let err):
+            print(err)
+          }
+        }
       }
     }
   }

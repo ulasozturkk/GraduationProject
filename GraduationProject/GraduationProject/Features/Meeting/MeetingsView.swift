@@ -44,6 +44,7 @@ struct MeetingsView: View {
     }.onAppear {
       VM.fetchMeetings()
       VM.fetchInvitations()
+      VM.getUsersInvites()
     }
     .searchable(text: $searhcTerm, prompt: "Search Meetings")
   }

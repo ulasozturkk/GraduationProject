@@ -11,6 +11,7 @@
 		5209C51B2BF7382E00C5A52A /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5209C51A2BF7382E00C5A52A /* ProfileViewModel.swift */; };
 		5209C51D2BF73AC500C5A52A /* UsersFriendsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5209C51C2BF73AC500C5A52A /* UsersFriendsResponse.swift */; };
 		5209C5212BF76AF500C5A52A /* AddFriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5209C5202BF76AF500C5A52A /* AddFriendsView.swift */; };
+		5209C5232BF7743B00C5A52A /* FriendshipRequestsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5209C5222BF7743B00C5A52A /* FriendshipRequestsResponse.swift */; };
 		522AB7512BF3EABB00BE21CD /* CreateMeetingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522AB7502BF3EABB00BE21CD /* CreateMeetingViewModel.swift */; };
 		522AB7532BF3EB3100BE21CD /* CreateMeetingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522AB7522BF3EB3100BE21CD /* CreateMeetingView.swift */; };
 		522AB7552BF3EF0600BE21CD /* GetUserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522AB7542BF3EF0600BE21CD /* GetUserResponse.swift */; };
@@ -63,6 +64,7 @@
 		5209C51A2BF7382E00C5A52A /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		5209C51C2BF73AC500C5A52A /* UsersFriendsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersFriendsResponse.swift; sourceTree = "<group>"; };
 		5209C5202BF76AF500C5A52A /* AddFriendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendsView.swift; sourceTree = "<group>"; };
+		5209C5222BF7743B00C5A52A /* FriendshipRequestsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendshipRequestsResponse.swift; sourceTree = "<group>"; };
 		522AB7502BF3EABB00BE21CD /* CreateMeetingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateMeetingViewModel.swift; sourceTree = "<group>"; };
 		522AB7522BF3EB3100BE21CD /* CreateMeetingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateMeetingView.swift; sourceTree = "<group>"; };
 		522AB7542BF3EF0600BE21CD /* GetUserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserResponse.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 				522AB7602BF4AF5600BE21CD /* CreateMeetingResponse.swift */,
 				522AB7692BF5FF6400BE21CD /* NoDataResponse.swift */,
 				5209C51C2BF73AC500C5A52A /* UsersFriendsResponse.swift */,
+				5209C5222BF7743B00C5A52A /* FriendshipRequestsResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -414,6 +417,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				522AB7572BF3FF2200BE21CD /* LocationDetailView.swift in Sources */,
+				5209C5232BF7743B00C5A52A /* FriendshipRequestsResponse.swift in Sources */,
 				522AB76A2BF5FF6400BE21CD /* NoDataResponse.swift in Sources */,
 				525103242BB0572E00575DE6 /* CustomTextField.swift in Sources */,
 				525102BF2BB04C1300575DE6 /* Persistence.swift in Sources */,
