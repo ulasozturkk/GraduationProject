@@ -57,6 +57,9 @@
 		525103282BB0575000575DE6 /* CustomToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525103272BB0575000575DE6 /* CustomToggle.swift */; };
 		5251032A2BB0576200575DE6 /* CustomBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525103292BB0576200575DE6 /* CustomBackButton.swift */; };
 		5251032E2BB0578700575DE6 /* TextViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5251032D2BB0578700575DE6 /* TextViewModifier.swift */; };
+		5261C8552BFB3394006C0762 /* MeetingChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5261C8542BFB3394006C0762 /* MeetingChatView.swift */; };
+		5261C8582BFB3F2C006C0762 /* MeetingChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5261C8572BFB3F2C006C0762 /* MeetingChatViewModel.swift */; };
+		5261C85A2BFB42A8006C0762 /* MessagesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5261C8592BFB42A8006C0762 /* MessagesResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -111,6 +114,9 @@
 		525103272BB0575000575DE6 /* CustomToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomToggle.swift; sourceTree = "<group>"; };
 		525103292BB0576200575DE6 /* CustomBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBackButton.swift; sourceTree = "<group>"; };
 		5251032D2BB0578700575DE6 /* TextViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewModifier.swift; sourceTree = "<group>"; };
+		5261C8542BFB3394006C0762 /* MeetingChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingChatView.swift; sourceTree = "<group>"; };
+		5261C8572BFB3F2C006C0762 /* MeetingChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingChatViewModel.swift; sourceTree = "<group>"; };
+		5261C8592BFB42A8006C0762 /* MessagesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +188,7 @@
 				522AB7692BF5FF6400BE21CD /* NoDataResponse.swift */,
 				5209C51C2BF73AC500C5A52A /* UsersFriendsResponse.swift */,
 				5209C5222BF7743B00C5A52A /* FriendshipRequestsResponse.swift */,
+				5261C8592BFB42A8006C0762 /* MessagesResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -227,6 +234,7 @@
 		523CF58C2BF37BB500CC0F92 /* Meeting */ = {
 			isa = PBXGroup;
 			children = (
+				5261C8562BFB3877006C0762 /* Chat */,
 				522AB7642BF5E09500BE21CD /* MeetingInvitations */,
 				522AB74C2BF3E5F100BE21CD /* CreateMeeting */,
 				523CF58D2BF37BC200CC0F92 /* MeetingsView.swift */,
@@ -341,6 +349,15 @@
 			path = ViewModifiers;
 			sourceTree = "<group>";
 		};
+		5261C8562BFB3877006C0762 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				5261C8542BFB3394006C0762 /* MeetingChatView.swift */,
+				5261C8572BFB3F2C006C0762 /* MeetingChatViewModel.swift */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -420,6 +437,7 @@
 				5209C5232BF7743B00C5A52A /* FriendshipRequestsResponse.swift in Sources */,
 				522AB76A2BF5FF6400BE21CD /* NoDataResponse.swift in Sources */,
 				525103242BB0572E00575DE6 /* CustomTextField.swift in Sources */,
+				5261C8552BFB3394006C0762 /* MeetingChatView.swift in Sources */,
 				525102BF2BB04C1300575DE6 /* Persistence.swift in Sources */,
 				522AB7662BF5E0A800BE21CD /* MeetingInvitationsView.swift in Sources */,
 				525103212BB0570300575DE6 /* Colors.swift in Sources */,
@@ -429,6 +447,7 @@
 				525102B82BB04C1200575DE6 /* ContentView.swift in Sources */,
 				522F46702BF25202002F8796 /* SignInView.swift in Sources */,
 				525103262BB0573F00575DE6 /* CustomButton.swift in Sources */,
+				5261C8582BFB3F2C006C0762 /* MeetingChatViewModel.swift in Sources */,
 				523CF5922BF37D3C00CC0F92 /* MeetingDetailView.swift in Sources */,
 				5209C5192BF7359A00C5A52A /* ProfileView.swift in Sources */,
 				522AB7532BF3EB3100BE21CD /* CreateMeetingView.swift in Sources */,
@@ -462,6 +481,7 @@
 				522F466C2BF250D1002F8796 /* SignUpViewModel.swift in Sources */,
 				5251032E2BB0578700575DE6 /* TextViewModifier.swift in Sources */,
 				522F466E2BF250FB002F8796 /* TabBar.swift in Sources */,
+				5261C85A2BFB42A8006C0762 /* MessagesResponse.swift in Sources */,
 				522AB75D2BF404B800BE21CD /* LocationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

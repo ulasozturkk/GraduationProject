@@ -9,7 +9,7 @@ protocol EndPointProtocol {
   var header: [String: String]? { get }
   var parameters: [String: Any]? { get }
 
-  var doubleParameters: Double? { get }
+  var doubleParameters: Double? { get } //?
   func request() -> URLRequest
 }
 
@@ -58,7 +58,7 @@ enum Endpoint {
   // MARK: - MESSAGE
 
   case getMessages(meetingID: String)
-  case addMessage(meetingID: String, message: String, userID: String) // ?????
+  case addMessage(meetingID: String, message: String, userID: String,email:String) // ?????
 }
 
 extension Endpoint: EndPointProtocol {
@@ -166,8 +166,8 @@ extension Endpoint: EndPointProtocol {
         "ownerID": ownerID,
         "invitedUsersIDList": invitedUsersIDList,
       ]
-    } else if case .addMessage(let meetingID, let message, let userID) = self {
-      return ["message": message, "userID": userID]
+    } else if case .addMessage(let meetingID, let message, let userID,let email) = self {
+      return ["message": message, "userID": userID, "email":email]
     } else if case .createUser(let email, let password) = self {
       return ["email": email, "password": password]
     } else if case .logInUser(let email, let password) = self {
@@ -225,7 +225,7 @@ extension Endpoint: EndPointProtocol {
       components.queryItems = [URLQueryItem(name: "favPlaceID", value: favPlaceID)]
     case .acceptInvite(let friendID), .rejectInvite(let friendID):
       components.queryItems = [URLQueryItem(name: "friendID", value: friendID)]
-    case .getMessages(let meetingID), .reviewMeeting(let meetingID, _), .addMessage(let meetingID, _, _):
+    case .getMessages(let meetingID), .reviewMeeting(let meetingID, _), .addMessage(let meetingID, _, _,_):
       components.queryItems = [URLQueryItem(name: "meetingID", value: meetingID)]
     default:
       break

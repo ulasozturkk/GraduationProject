@@ -58,7 +58,7 @@ struct Details: View {
         CustomImage(imagename: .peopleIcon)
         VStack {
           ScrollView{
-            ForEach(meeting.invitedUsersIDs ?? [], id: \.self) { quest in
+            ForEach(meeting.attendeeUsersIDs ?? [], id: \.self) { quest in
               Text(quest)
                 .modifier(Description(color:Colors.gray.rawValue))
               //TODO: buraya quest isimleri (firebaseden gelecek)
@@ -66,6 +66,14 @@ struct Details: View {
           }
         }
         Spacer()
+      }
+      HStack{
+        CustomIconButton(action: {
+          
+        }, buttonImage: .messageIcon)
+        .padding(.horizontal)
+        Text("Messages").modifier(SubTitle())
+        
       }
     }
   }
