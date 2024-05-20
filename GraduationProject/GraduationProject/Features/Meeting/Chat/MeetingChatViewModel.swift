@@ -4,7 +4,7 @@ import Foundation
 class MeetingChatViewModel: ObservableObject {
   @Published var messages: MessagesResponse = .init(data: [], statusCode: 0, error: nil)
   @Published var isLoading: Bool = false
-  let webSocketManager = WebsocketManager()
+
 
   private func sendMessage(meetingID: String, message: String, userID: String, email: String, completion: @escaping (Result<NoDataResponse, Error>)->Void) {
     let endpoint = Endpoint.addMessage(meetingID: meetingID, message: message, userID: userID, email: email)
@@ -38,7 +38,6 @@ class MeetingChatViewModel: ObservableObject {
   func sendMessage(meetingID: String, message: String, userID: String, email: String) {
     DispatchQueue.global().asyncAfter(deadline: .now() + 1) {
 
-      self.webSocketManager.sendMessage(userID: userID, userEmail: email, text: message)
       DispatchQueue.main.async {
         self.sendMessage(meetingID: meetingID, message: message, userID: userID, email: email) { result in
 
@@ -54,6 +53,6 @@ class MeetingChatViewModel: ObservableObject {
     }
   }
   func disconnect(){
-    self.webSocketManager.disconnect()
+
   }
 }

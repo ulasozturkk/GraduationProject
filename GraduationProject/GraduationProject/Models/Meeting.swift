@@ -1,6 +1,6 @@
 import Foundation
 
-struct Meeting: Codable {
+struct Meeting: Codable,Equatable {
   let meetingID, title, description, time: String
   let isOnline: Bool
   let meetingLink: String

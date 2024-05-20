@@ -7,8 +7,8 @@ struct TabBar: View {
     TabView {
       MeetingsView()
         .tabItem { Label("Meetings", systemImage: "calendar") }
-//      PastMeetingsView()
-//        .tabItem { Label("Past Meetings", systemImage: "calendar.badge.checkmark") }
+     PastMeetingsView()
+        .tabItem { Label("Past Meetings", systemImage: "calendar.badge.checkmark") }
 //
 //      SettingsView()
 //        .tabItem { Label("Settings", systemImage: "gearshape") }
