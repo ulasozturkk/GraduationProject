@@ -60,6 +60,8 @@
 		5261C8552BFB3394006C0762 /* MeetingChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5261C8542BFB3394006C0762 /* MeetingChatView.swift */; };
 		5261C8582BFB3F2C006C0762 /* MeetingChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5261C8572BFB3F2C006C0762 /* MeetingChatViewModel.swift */; };
 		5261C85A2BFB42A8006C0762 /* MessagesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5261C8592BFB42A8006C0762 /* MessagesResponse.swift */; };
+		5261C85E2BFB63F7006C0762 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5261C85D2BFB63F7006C0762 /* Message.swift */; };
+		5261C8682BFB7A33006C0762 /* Starscream in Frameworks */ = {isa = PBXBuildFile; productRef = 5261C8672BFB7A33006C0762 /* Starscream */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -117,6 +119,7 @@
 		5261C8542BFB3394006C0762 /* MeetingChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingChatView.swift; sourceTree = "<group>"; };
 		5261C8572BFB3F2C006C0762 /* MeetingChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingChatViewModel.swift; sourceTree = "<group>"; };
 		5261C8592BFB42A8006C0762 /* MessagesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesResponse.swift; sourceTree = "<group>"; };
+		5261C85D2BFB63F7006C0762 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +127,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5261C8682BFB7A33006C0762 /* Starscream in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,6 +327,7 @@
 				522F465C2BF2483F002F8796 /* Meeting.swift */,
 				522F465E2BF2485B002F8796 /* User.swift */,
 				522AB7582BF3FF8800BE21CD /* Place.swift */,
+				5261C85D2BFB63F7006C0762 /* Message.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -375,6 +380,7 @@
 			);
 			name = GraduationProject;
 			packageProductDependencies = (
+				5261C8672BFB7A33006C0762 /* Starscream */,
 			);
 			productName = GraduationProject;
 			productReference = 525102B22BB04C1200575DE6 /* GraduationProject.app */;
@@ -405,6 +411,7 @@
 			);
 			mainGroup = 525102A92BB04C1200575DE6;
 			packageReferences = (
+				5261C8662BFB7A33006C0762 /* XCRemoteSwiftPackageReference "Starscream" */,
 			);
 			productRefGroup = 525102B32BB04C1200575DE6 /* Products */;
 			projectDirPath = "";
@@ -436,6 +443,7 @@
 				522AB7572BF3FF2200BE21CD /* LocationDetailView.swift in Sources */,
 				5209C5232BF7743B00C5A52A /* FriendshipRequestsResponse.swift in Sources */,
 				522AB76A2BF5FF6400BE21CD /* NoDataResponse.swift in Sources */,
+				5261C85E2BFB63F7006C0762 /* Message.swift in Sources */,
 				525103242BB0572E00575DE6 /* CustomTextField.swift in Sources */,
 				5261C8552BFB3394006C0762 /* MeetingChatView.swift in Sources */,
 				525102BF2BB04C1300575DE6 /* Persistence.swift in Sources */,
@@ -690,6 +698,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5261C8662BFB7A33006C0762 /* XCRemoteSwiftPackageReference "Starscream" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/daltoniam/Starscream.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.8;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5261C8672BFB7A33006C0762 /* Starscream */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5261C8662BFB7A33006C0762 /* XCRemoteSwiftPackageReference "Starscream" */;
+			productName = Starscream;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		525102C02BB04C1300575DE6 /* GraduationProject.xcdatamodeld */ = {

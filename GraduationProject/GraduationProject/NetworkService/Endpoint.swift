@@ -167,7 +167,7 @@ extension Endpoint: EndPointProtocol {
         "invitedUsersIDList": invitedUsersIDList,
       ]
     } else if case .addMessage(let meetingID, let message, let userID,let email) = self {
-      return ["message": message, "userID": userID, "email":email]
+      return ["message": message, "userID": userID, "userEmail":email]
     } else if case .createUser(let email, let password) = self {
       return ["email": email, "password": password]
     } else if case .logInUser(let email, let password) = self {
@@ -265,6 +265,7 @@ extension Endpoint: EndPointProtocol {
         request.setValue(value, forHTTPHeaderField: key)
       }
     }
+    
     return request
   }
 }

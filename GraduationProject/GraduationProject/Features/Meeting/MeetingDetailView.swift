@@ -1,5 +1,5 @@
-import SwiftUI
 import MapKit
+import SwiftUI
 
 struct MeetingDetailView: View {
   @Environment(\.dismiss) var dismiss
@@ -12,7 +12,6 @@ struct MeetingDetailView: View {
       }.navigationTitle(meeting.title)
         .navigationBarTitleDisplayMode(.large)
       
-        
     }.navigationBarBackButtonHidden(true)
       .toolbar {
         ToolbarItem(placement: .topBarLeading) {
@@ -38,12 +37,12 @@ struct Details: View {
         Text("Meeting ID: \(meeting.meetingID)").modifier(SubTitle())
         Spacer()
       }
-      HStack{
+      HStack {
         CustomImage(imagename: .locationIcon)
-        if (meeting.latitude == 0){
+        if meeting.latitude == 0 {
           Text(verbatim: "Online \(meeting.meetingLink ?? "some link")").modifier(SubTitle())
-        }else {
-          ZStack{
+        } else {
+          ZStack {
             RoundedRectangle(cornerRadius: 12)
               .frame(height: UIScreen.main.bounds.height * 0.4)
             Map()
@@ -54,26 +53,27 @@ struct Details: View {
         Spacer()
       }
       
-      HStack(alignment:.top) {
+      HStack(alignment: .top) {
         CustomImage(imagename: .peopleIcon)
         VStack {
-          ScrollView{
+          ScrollView {
             ForEach(meeting.attendeeUsersIDs ?? [], id: \.self) { quest in
               Text(quest)
-                .modifier(Description(color:Colors.gray.rawValue))
-              //TODO: buraya quest isimleri (firebaseden gelecek)
+                .modifier(Description(color: Colors.gray.rawValue))
+              // TODO: buraya quest isimleri (firebaseden gelecek)
             }
           }
         }
         Spacer()
       }
-      HStack{
-        CustomIconButton(action: {
-          
-        }, buttonImage: .messageIcon)
-        .padding(.horizontal)
-        Text("Messages").modifier(SubTitle())
-        
+      NavigationLink {
+        MeetingChatView(meeting: meeting)
+      } label: {
+        HStack {
+          CustomIconButton(action: {}, buttonImage: .messageIcon)
+            .padding(.horizontal)
+          Text("Messages").modifier(SubTitle())
+        }
       }
     }
   }

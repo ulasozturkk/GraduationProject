@@ -23,6 +23,7 @@ class NetworkManager{
        
         
         let decodedData = try JSONDecoder().decode(T.self, from: data)
+        print(decodedData)
         completion(.success(decodedData))
       } catch {
         completion(.failure(error))
@@ -52,16 +53,16 @@ class NetworkManager{
   }
 
   
-  class Delegate: NSObject, URLSessionDelegate {
-    func urlSession(_ session: URLSession, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
-      if challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodServerTrust {
-        if let serverTrust = challenge.protectionSpace.serverTrust {
-          let credential = URLCredential(trust: serverTrust)
-          completionHandler(.useCredential, credential)
-          return
-        }
+}
+class Delegate: NSObject, URLSessionDelegate {
+  func urlSession(_ session: URLSession, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
+    if challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodServerTrust {
+      if let serverTrust = challenge.protectionSpace.serverTrust {
+        let credential = URLCredential(trust: serverTrust)
+        completionHandler(.useCredential, credential)
+        return
       }
-      completionHandler(.performDefaultHandling, nil)
     }
+    completionHandler(.performDefaultHandling, nil)
   }
 }

@@ -6,34 +6,49 @@ struct MeetingChatView: View {
   var meeting: Meeting
   @Environment(\.dismiss) var dismiss
   @State var msg: String = ""
+  @StateObject var VM = MeetingChatViewModel()
+  var userID = SessionManager.shared.currentServiceUser?.userID
+
+
   var body: some View {
     NavigationStack {
       VStack {
         ScrollView {
           VStack {
-            Text("meeting title").modifier(Title())
-            Text("meeting ID").modifier(SubTitle())
-            
-            ChatMessageCell(isFromCurrentUser: false)
-            ChatMessageCell(isFromCurrentUser: false)
-            ChatMessageCell(isFromCurrentUser: true)
-            ChatMessageCell(isFromCurrentUser: false)
-            ChatMessageCell(isFromCurrentUser: true)
+            Text(meeting.title).modifier(Title())
+            Text(meeting.time).modifier(SubTitle())
+
+            if VM.isLoading {
+              ProgressView()
+            } else {
+              ForEach(VM.messages.data, id: \.messageID) { message in
+                ChatMessageCell(isFromCurrentUser: message.userID == self.userID, message: message)
+              }
+            }
           }
         }
         Spacer()
-        
+
         ZStack(alignment: .trailing) {
           CustomTextField(text: $msg, placeHolderText: "your message", systemImage: "message", isSecured: false)
-          CustomIconButton(action: {}, buttonImage: .plusbutton, customSize: sh * 0.03).padding(.horizontal)
+          CustomIconButton(action: {
+            VM.sendMessage(meetingID: meeting.meetingID, message: msg, userID: SessionManager.shared.currentServiceUser!.userID, email: SessionManager.shared.currentServiceUser!.email)
+
+          }, buttonImage: .plusbutton, customSize: sh * 0.03).padding(.horizontal)
         }
       }
-    }.toolbar {
+    }
+    .navigationBarBackButtonHidden(true)
+    .toolbar {
       ToolbarItem(placement: .topBarLeading) {
         CustomBackButton {
+          VM.disconnect()
           dismiss()
         }
       }
+    }
+    .onAppear {
+      VM.getMessages(meetingID: meeting.meetingID)
     }
   }
 }
@@ -41,13 +56,14 @@ struct MeetingChatView: View {
 struct ChatMessageCell: View {
   let isFromCurrentUser: Bool
   let sh = UIScreen.main.bounds.height
+  var message: messagedto
   var body: some View {
     if isFromCurrentUser {
       HStack {
         Spacer()
         ZStack {
           RoundedRectangle(cornerRadius: 12).foregroundStyle(.green)
-          Text("some message text but it has multilme strimgdjfslgmsdfgdmfgdsfgd")
+          Text(message.message)
             .modifier(SubTitle())
             .foregroundStyle(.white)
             .padding()
@@ -60,11 +76,11 @@ struct ChatMessageCell: View {
         VStack(alignment: .leading) {
           HStack {
             CustomImage(imagename: .profileIcon)
-            Text("email").modifier(SubTitle())
+            Text(message.userEmail).modifier(SubTitle())
           }
           ZStack {
             RoundedRectangle(cornerRadius: 12).foregroundStyle(.gray)
-            Text("some message text but it has multilme strimgdjfslgmsdfgdmfgdsfgd")
+            Text(message.message)
               .modifier(SubTitle())
               .foregroundStyle(.white)
               .padding()
@@ -75,4 +91,3 @@ struct ChatMessageCell: View {
     }
   }
 }
-
