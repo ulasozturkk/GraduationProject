@@ -9,7 +9,6 @@ protocol EndPointProtocol {
   var header: [String: String]? { get }
   var parameters: [String: Any]? { get }
 
-  var doubleParameters: Double? { get } //?
   func request() -> URLRequest
 }
 
@@ -179,19 +178,13 @@ extension Endpoint: EndPointProtocol {
     } else if case .deleteMeeting(let meetingID) = self {
       return ["meetingID": meetingID]
     }
+      else if case .reviewMeeting(let meetingID, let reviewPoint) = self {
+          return ["review" : reviewPoint]
+      }
     
     else { return nil }
   }
   
-
-  var doubleParameters: Double? {
-    switch self {
-    case .reviewMeeting(_, let reviewPoint):
-      return reviewPoint
-    default:
-      return nil
-    }
-  }
     
   var method: HTTPMethod {
     switch self {
@@ -252,14 +245,7 @@ extension Endpoint: EndPointProtocol {
 
       }
     }
-      
-    if let doubleParameters = doubleParameters {
-      do {
-        request.httpBody = try JSONSerialization.data(withJSONObject: doubleParameters)
-      } catch {
-        print(error.localizedDescription)
-      }
-    }
+    
     if let header = header {
       for (key, value) in header {
         request.setValue(value, forHTTPHeaderField: key)
